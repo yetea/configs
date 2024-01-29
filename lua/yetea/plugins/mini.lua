@@ -49,21 +49,6 @@ return {
     },
   },
   {
-    'echasnovski/mini.comment',
-    version = '*',
-    event = "VeryLazy",
-    opts = {
-      options = {
-        custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
-        end,
-      },
-    },
-    config = function()
-      require('mini.comment').setup()
-    end
-  },
-  {
     'echasnovski/mini.cursorword',
     version = '*',
     event = "VeryLazy",
@@ -109,7 +94,7 @@ return {
         update_n_lines = "gsn", -- Update `n_lines`
       },
     },
-    config = function() 
+    config = function()
       require('mini.surround').setup()
     end,
     keys = function(_, keys)

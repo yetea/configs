@@ -16,7 +16,12 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require('lazy').setup({
-  { import = "yetea.plugins" },
+  {
+    import = "yetea.plugins",
+    change_detection = {
+      notify = false,
+    },
+  },
 
   {
     "loctvl842/monokai-pro.nvim",
@@ -28,4 +33,3 @@ require('lazy').setup({
     end
   },
 }, {})
-

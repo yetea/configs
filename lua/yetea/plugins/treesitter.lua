@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   version = false, -- last release is way too old and doesn't work on Windows
   build = ":TSUpdate",
-  event = {  "VeryLazy" },
+  event = { "VeryLazy" },
   init = function(plugin)
     -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
     -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
@@ -38,11 +38,13 @@ return {
         end
       end,
     },
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "windwp/nvim-ts-autotag",
   },
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   keys = {
     { "<c-space>", desc = "Increment selection" },
-    { "<bs>", desc = "Decrement selection", mode = "x" },
+    { "<bs>",      desc = "Decrement selection", mode = "x" },
   },
   ---@type TSConfig
   ---@diagnostic disable-next-line: missing-fields
@@ -91,6 +93,10 @@ return {
         goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
         goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
       },
+    },
+    context_commentstring = {
+      enable = true,
+      enable_autocmd = false,
     },
   },
   ---@param opts TSConfig

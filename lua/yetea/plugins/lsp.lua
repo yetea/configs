@@ -21,7 +21,7 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-{ 'L3MON4D3/LuaSnip' },
+      { 'L3MON4D3/LuaSnip' },
       { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { "hrsh7th/cmp-buffer" },
@@ -39,7 +39,7 @@ return {
       -- And you can configure cmp even more, if you want to.
       local cmp = require('cmp')
 
-       local icons = {
+      local icons = {
         Array         = " ",
         Boolean       = "󰨙 ",
         Class         = " ",
@@ -82,7 +82,7 @@ return {
       }
 
       cmp.setup({
- mapping = cmp.mapping.preset.insert({
+        mapping = cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
         }),
         window = {
@@ -111,12 +111,12 @@ return {
   -- LSP
   {
     'neovim/nvim-lspconfig',
-    cmd = {'LspInfo', 'LspInstall', 'LspStart'},
-    event = {'BufReadPre', 'BufNewFile'},
+    cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'williamboman/mason-lspconfig.nvim'},
-       { 'j-hui/fidget.nvim',                opts = {} },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'williamboman/mason-lspconfig.nvim' },
+      { 'j-hui/fidget.nvim',                opts = {} },
     },
     config = function()
       -- This is where all the LSP shenanigans will live
@@ -128,7 +128,7 @@ return {
       lsp_zero.on_attach(function(client, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
- vim.keymap.set("n", "gd", function()
+        vim.keymap.set("n", "gd", function()
           vim.lsp.buf.definition()
         end, opts)
         vim.keymap.set("n", "K", function()
